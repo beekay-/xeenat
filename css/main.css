@@ -1,0 +1,194 @@
+/*  Author: Bilal Karim
+    Version: 10.0
+    Codename: Thumbtiles
+*/
+
+/* MAIN */
+
+html, body {
+    background: #000;
+    font-family: 'Crimson Text', Georgia, Times, sans-serif;
+    font-size: 1.1em;
+    font-weight: 400;
+    overflow-x: hidden;
+    /*-webkit-font-smoothing: antialiased;*/
+}
+#gallery {
+    overflow: hidden;
+}
+.thumb, .header, .end {
+    width: 20%;
+    padding-bottom: 20%;
+    color: #000;
+    position: relative;
+    float: left;
+}
+.content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #FFF;
+}
+.caption-holder, .footer { 
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    z-index: 2;
+    position: absolute;
+    opacity: 0.85; 
+    filter: alpha(opacity=85); 
+    -moz-opacity: 0.85;
+}
+.footer {
+    background: #000;
+    opacity: 1; 
+    filter: alpha(opacity=100); 
+    -moz-opacity: 1;
+}
+.caption, .social {
+    font-style: oblique;
+    font-weight: 600;
+    text-align: center;
+    margin: 42.5% 0;
+    width: 100%;
+    /*position: absolute;*/
+    color: #FFF;
+    font-size: 1.3em;
+    -webkit-font-smoothing: antialiased;
+}
+.social {
+    font-style: normal;
+    font-weight: 400;
+    margin: 22% 0;
+    /*top: 24%;*/
+    padding-bottom: 100%;
+    font-size: 0.9em;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+#logo {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    width: 100%;
+    padding-bottom: 100%;
+    position: absolute;
+    top: 0;
+}   
+.back, .front {
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transition: -webkit-transform 0.4s ease;
+    -moz-transition: -moz-transform 0.4s ease;
+    transition: transform 0.4s ease;
+    width: 100%;
+    height: 100%;   
+    color: #000; 
+    background: #FFF;
+    text-align: justify;
+}
+.back {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    overflow: hidden;
+    width: 100%;
+}
+.front {
+    background: #000;
+}
+#logo-container {
+    display: inline-block;
+    text-align: justify;
+}   
+#logo-container:hover .back {   
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+#logo-container:hover .front {      
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+img {
+    width: 100%;
+}
+p {
+    width: 80%;
+    margin: 9%;
+    line-height: 1.3em;
+    font-weight: 400;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+a.url:link {
+    color: #9A9A9A;
+    text-decoration: none;
+}
+a.url:hover {
+    color: #FFF;
+    transition: color 0.8s linear;
+}
+a.url:visited, a.url:active {
+    color: #FFF;   
+}
+a.main:link, a.main:hover, a.main:visited, a.main:active {
+    color: #FFF;
+    text-decoration: none;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width : 480px) {
+/* Smartphone view: 1 tile */
+    .thumb {
+        width: 50%;
+        padding-bottom: 50%;
+    }
+    .header, .end {
+        width: 100%;
+        padding-bottom: 100%;
+    }
+    .back, .social {
+        font-size: 1.3em;
+    }
+    .caption {
+        font-size: 1.1em;
+    }
+}
+@media only screen and (max-width : 650px) and (min-width : 481px) {
+/* Tablet view: 2 tiles */
+    .thumb, .header, .end {
+        width: 50%;
+        padding-bottom: 50%;
+    }
+}
+@media only screen and (max-width : 1050px) and (min-width : 651px) {
+/* Small desktop / ipad view: 3 tiles */
+    .thumb, .header, .end  {
+        width: 33.3%;
+        padding-bottom: 33.3%;
+    }
+    .back {
+        font-size: 1.05em;
+    }
+}
+@media only screen and (max-width : 1290px) and (min-width : 1051px) {
+/* Medium desktop: 4 tiles */
+    .thumb, .header, .end {
+        width: 20%;
+        padding-bottom: 20%;
+    }
+}
